@@ -7,6 +7,7 @@ RomanPadPrefs_FILES = RPADRootListController.m
 RomanPadPrefs_INSTALL_PATH = /Library/PreferenceBundles
 RomanPadPrefs_FRAMEWORKS = UIKit
 RomanPadPrefs_PRIVATE_FRAMEWORKS = Preferences
+RomanPadPrefs_LDFLAGS += -F../Frameworks/
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
