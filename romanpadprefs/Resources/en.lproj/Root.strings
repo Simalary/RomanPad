@@ -1,0 +1,10 @@
+{
+    GENERAL_TITLE = "General";
+    ENABLED = "Enabled";
+    APPEARANCE_TITLE = "Appearance";
+    APPEARANCE_FOOTER = "Letter Assistance will provide the alphabet underneath the buttons. Use this if you use a passcode based on spelling or need help with dialling word-based numbers.";
+    ZERO_STYLE = "Zero Style";
+    ZERO_DASH = "Use \"-\" for Zero";
+    ZERO_ZERO = "Use \"0\" for Zero";
+    LETTER_ASSISTANCE = "Letter Assistance";
+}

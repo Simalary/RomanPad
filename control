@@ -1,0 +1,9 @@
+Package: beta.simalary.romanpad-beta
+Name: RomanPad (Beta)
+Depends: mobilesubstrate
+Version: 0.1beta7
+Architecture: iphoneos-arm
+Description: Change number buttons to Roman numerals.
+Maintainer: Simalary (Chris)
+Author: Simalary (Chris)
+Section: Tweaks

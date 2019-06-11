@@ -1,0 +1,10 @@
+{
+    GENERAL_TITLE = "General";
+    ENABLED = "Habilitado";
+    APPEARANCE_TITLE = "Apariencia";
+    APPEARANCE_FOOTER = "Asistencia por alfabeto proporcionará el alfabeto debajo de los botones. Use esto si usa un código de acceso basado en la ortografía o si necesita ayuda para marcar números basados en palabras.";
+    ZERO_STYLE = "Estilo de cero";
+    ZERO_DASH = "Utilizar \"-\" como cero";
+    ZERO_ZERO = "Utilizar \"0\" como cero";
+    LETTER_ASSISTANCE = "Asistencia por alfabeto";
+}

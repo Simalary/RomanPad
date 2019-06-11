@@ -1,0 +1,7 @@
+{
+    RESPRING_BUTTON_TITLE = "Apply";
+    RESPRING_ALERT_TITLE = "Warning";
+    RESPRING_ALERT_MESSAGE = "Changes applied here should take effect after just a few moments. However, some applications may need to restart to adapt to the changes. Restarting SpringBoard will restart all applications. This may take a few moments.";
+    RESPRING_ALERT_RESTART = "Restart SpringBoard";
+    RESPRING_ALERT_CANCEL = "Cancel";
+}

@@ -1,0 +1,26 @@
+os: osx
+language: objective-c
+osx_image: xcode10.1
+sudo: false
+env:
+  global:
+  - THEOS=~/theos
+  - secure: AfDP9W1eLC90lGZekGAHN+q+7vZZ/dKrz0JDs3Lj/ONA4RJH/idFCirMiAJFKij/u+OjtNYDSs3ShKCrpXqgDmw3oEZO66SXsn06mJs5YAPWG2ZqRHCQGP6t9OrD7GlO405jYfAvNNGyQysLOLSeNDkPKN0Cp+EI+GnfpRhhJiX4Wn4ccQY9ooO22Ma7FsWlxL3tkQjY9qEc7WaPzJ86HejGVmS0Bldi/Ir8THBHxtQGsyQPWawdIOgiRfwJ8dJY7n5flpPBpGKb8yq3912zRdBZEhGaW1q1c3hw0LewZnsYq9WJdrYszO3zaidzbQJ16SdLaX9ezUO/qvmUHnwEC62xEibmKhkcSKHZ2WVYsFar5AzZ3NaVtbu2CW2dHcdi8XDP8AR3dr4gTSBQOSTyitSqJj9xkCicNadMDz1ly9uR2zHkcRH8VqaktF8Aj5nKTFWrOhVm4bbq+PyLRRRDIkMfkowxebEx8nU9Ysflp4mJ/q90Mx/Gd8L/D2MS5xWOHYjvUH14WaGa4cohaoTKT00ttctKazqGacgodYcrKOrEYAKGihosb+VsSCaLO6WedBeAaql1qqwV0TWf3WG9fniv8KrlEJxvMAq07zwvKE1FZmkSdg1dYaL8cZuup9b0/vESK0M86Hdq0Y32XZiMxQ6YK4tEAKhqicKNceOLU4U=
+before_install:
+- brew install dpkg ldid
+- git clone --recursive git://github.com/theos/theos.git ~/theos
+script:
+- make clean package FINALPACKAGE=1
+before_deploy:
+- git config --local user.name "simalary"
+- git config --local user.email "19harperc@gmail.com"
+- export RELEASE_PKG_FILE=$(ls ./packages/*.deb)
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
+deploy:
+  provider: releases
+  api_key:
+    secure: Fl5awTeexoaT0HdyKC/FhOJFux+O4sUk/somnxNLSSRw9xgowulAfVI6Z3k6sgsA6aeaYvPb7EDUXX4gzmGNcHVCExJBKBDfivhnudwwWm4EZB/R3xjxCHVyr8zOjLiVmEwdIxixk+EuFVyhaoydfc/rtGH+2XpeCydnXxKOhUuV0zlxiO85RFFXdHKnOfGgbWznwpshvt8/AE6UY2AbT5sPy5Mf9PzMP+K2cshD17NeX1gaMntK+Qy+L6/tSotef3m1uZZe7vBUQjsluk1tFvOxSV9Zd5oI0SlCBonKKbNxnmF6T5/TrKMyK4EV8pDCDuVDyvTgO8HRNXJ1yp6Tv3KLwiE2+ceDof8cUBIIDhbfgOClvIBIeZM+TYiuv7vr9/PbgQSg9LlWPH2ap4MD3OAPOsstXjq3DgMGfAX8q3Kefwo5bTy6sOdhetYJJIDLnwN9a0B3UNtekWr8FKIYl8IWCasXoJ0DqBLNpQB6btrFssi8J3526TTlrDlZx9GMbhcc0n0tnzj34GwcYUl4WhVg6DkzPRqDLMDztdFB97p16wvDZLJH6EI7ywt9uykcKE7uqR5OYyIFkc1SgCxZauKpC2IKbRjqRUrSAeyfuuf8VsZGIbFSm7LILDt6UmCVXFvzlo4fFADXzwI37DtnJaHpZiXy/iRghUvNzD0ih+w=
+  file: "${RELEASE_PKG_FILE}"
+  on:
+    repo: Simalary/RomanPad
